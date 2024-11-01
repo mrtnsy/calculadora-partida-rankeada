@@ -23,7 +23,7 @@ function nivelDoJogador(saldoVitorias){//Como no exercício anterior atribuí 10
         {pontos: 90, nivel: "Diamante"},
         {pontos: 100, nivel: "Lendario"}
     ]
-    for(let rank of ranks){
+    for(const rank of ranks){
         if(saldoVitorias <= rank.pontos)
             return rank.nivel
     }
