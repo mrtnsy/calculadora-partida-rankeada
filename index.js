@@ -1,5 +1,5 @@
-let saldoVitorias = saldoDeRankeadas(108,20)
-let nivel = nivelDoJogador(saldoVitorias)
+const saldoVitorias = saldoDeRankeadas(108,200)
+const nivel = nivelDoJogador(saldoVitorias)
 
 console.log(`O Herói tem de saldo de ${saldoVitorias} está no nível de ${nivel}`)
 
@@ -8,9 +8,8 @@ console.log(`O Herói tem de saldo de ${saldoVitorias} está no nível de ${nive
 function saldoDeRankeadas(vitorias, derrotas){
 
     let saldo = vitorias - derrotas
-    if(saldo <= 0)
-        saldo = 0
-    return saldo
+
+    return Math.max(saldo,0)
 }
 
 function nivelDoJogador(saldoVitorias){//Como no exercício anterior atribuí 10 para ferro, pois não se encaixava em nenhuma classificação.
@@ -23,9 +22,7 @@ function nivelDoJogador(saldoVitorias){//Como no exercício anterior atribuí 10
         {pontos: 90, nivel: "Diamante"},
         {pontos: 100, nivel: "Lendario"}
     ]
-    for(const rank of ranks){
-        if(saldoVitorias <= rank.pontos)
-            return rank.nivel
-    }
-    return "Imortal"
+    
+    const rankEncontrado = ranks.find(r => saldoVitorias <= r.pontos)
+    return rankEncontrado ? rankEncontrado.nivel : "Imortal"
 }
