@@ -15,7 +15,7 @@ function saldoDeRankeadas(vitorias, derrotas){
 
 function nivelDoJogador(saldoVitorias){//Como no exercício anterior atribuí 10 para ferro, pois não se encaixava em nenhuma classificação.
     
-    let ranks = [
+    const ranks = [
         {pontos: 10, nivel: "Ferro"},
         {pontos: 20, nivel: "Bronze"},
         {pontos: 50, nivel: "Prata"},
